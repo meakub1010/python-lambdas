@@ -1,0 +1,39 @@
+name: Deploy Lambda Functions
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to main branch
+
+jobs:
+  deploy_lambda_1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Install dependencies for Lambda 1
+        run: |
+          cd src/lambda_function_1
+          pip install -r requirements.txt -t .
+          zip -r ../lambda_function_1.zip *
+          
+      - name: Deploy Lambda 1
+        run: |
+          aws lambda update-function-code --function-name lambda_function_1 --zip-file fileb://lambda_function_1.zip
+
+  deploy_lambda_2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Install dependencies for Lambda 2
+        run: |
+          cd src/lambda_function_2
+          pip install -r requirements.txt -t .
+          zip -r ../lambda_function_2.zip *
+          
+      - name: Deploy Lambda 2
+        run: |
+          aws lambda update-function-code --function-name lambda_function_2 --zip-file fileb://lambda_function_2.zip
