@@ -12,6 +12,8 @@ jobs:
       run:
         working-directory: aws-lambda-project
     steps:
+      - name: Current working directory
+        run: pwd
       - name: Checkout code
         uses: actions/checkout@v2
         
