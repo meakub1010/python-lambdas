@@ -8,9 +8,6 @@ on:
 jobs:
   deploy_lambda_1:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: aws-lambda-project
     steps:
       - name: Current working directory
         run: ls -lah
@@ -19,7 +16,7 @@ jobs:
         
       - name: Install dependencies for Lambda 1
         run: |
-          cd src/lambda_function_1
+          cd aws-lambda-project/src/lambda_function_1
           pip install -r requirements.txt -t .
           zip -r ../lambda_function_1.zip *
           
