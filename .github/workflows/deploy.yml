@@ -66,6 +66,7 @@ jobs:
           --zip-file fileb://aws-lambda-project/src/lambda_function_2.zip \
           --region us-east-2 
   copy_artifacts_to_s3_bucket:
+    runs-on: ubuntu-latest
     steps:
       - name: Upload all ZIP to S3 after deployment
         run: |
