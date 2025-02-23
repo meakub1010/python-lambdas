@@ -17,7 +17,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1  # Change this if needed
+          aws-region: us-east-2  # Change this if needed
         
       - name: Current working directory
         run: ls -lah
@@ -38,7 +38,7 @@ jobs:
           aws lambda update-function-code \
           --function-name lambda_function_1 \
           --zip-file fileb://aws-lambda-project/src/lambda_function_1.zip \
-          --region us-east-1 
+          --region us-east-2 
 
   deploy_lambda_2:
     runs-on: ubuntu-latest
@@ -57,4 +57,4 @@ jobs:
           aws lambda update-function-code \
           --function-name lambda_function_2 \
           --zip-file fileb://aws-lambda-project/src/lambda_function_2.zip \
-          --region us-east-1 
+          --region us-east-2 
