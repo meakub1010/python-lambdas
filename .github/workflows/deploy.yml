@@ -55,7 +55,7 @@ jobs:
         
       - name: Install dependencies for Lambda 2
         run: |
-          cd src/lambda_function_2
+          cd aws-lambda-project/src/lambda_function_2
           pip install -r requirements.txt -t .
           zip -r ../lambda_function_2.zip *
           
