@@ -6,7 +6,7 @@ on:
       - py-lambdas  # Trigger on push to main branch
 
 jobs:
-  setup:
+  deploy_lambda_1:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,11 +17,8 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1  # Change if needed
-
-  deploy_lambda_1:
-    runs-on: ubuntu-latest
-    steps:
+          aws-region: us-east-1  # Change this if needed
+        
       - name: Current working directory
         run: ls -lah
       - name: Checkout code
