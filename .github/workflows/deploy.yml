@@ -25,7 +25,7 @@ jobs:
           
       - name: Deploy Lambda 1
         run: |
-          aws lambda update-function-code --function-name lambda_function_1 --zip-file fileb://lambda_function_1.zip
+          aws lambda update-function-code --function-name lambda_function_1 --zip-file fileb://aws-lambda-project/src/lambda_function_1.zip
 
   deploy_lambda_2:
     runs-on: ubuntu-latest
@@ -41,4 +41,4 @@ jobs:
           
       - name: Deploy Lambda 2
         run: |
-          aws lambda update-function-code --function-name lambda_function_2 --zip-file fileb://lambda_function_2.zip
+          aws lambda update-function-code --function-name lambda_function_2 --zip-file fileb://aws-lambda-project/src/lambda_function_2.zip
