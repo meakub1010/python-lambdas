@@ -40,6 +40,18 @@ jobs:
           --zip-file fileb://aws-lambda-project/src/lambda_function_1.zip \
           --region us-east-2 
 
+          S3_BUCKET_NAME="python-lambda-pipeline-artifacts"
+          LAMBDA_ZIP_DIRECTORY="aws-lambda-project/src/"
+
+          # Upload Lambda zip file to S3
+          if [ -f "$LAMBDA_ZIP_DIRECTORY/lambda_function_1.zip" ]; then
+            aws s3 cp "$LAMBDA_ZIP_DIRECTORY/lambda_function_1.zip" s3://$S3_BUCKET_NAME/lambda_function_1.zip
+            echo "Uploaded lambda_function_1.zip to s3://$S3_BUCKET_NAME/"
+          else
+            echo "No zip file found to upload."
+          fi
+
+
   deploy_lambda_2:
     runs-on: ubuntu-latest
     steps:
