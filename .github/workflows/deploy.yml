@@ -3,12 +3,12 @@ name: Deploy Lambda Functions
 on:
   push:
     branches:
-      - master  # Trigger on push to main branch
+      - py-lambdas  # Trigger on push to main branch
 
 jobs:
   deploy_lambda_1:
     runs-on: ubuntu-latest
-    defaukts:
+    defaults:
       run:
         working-directory: aws-lambda-project
     steps:
