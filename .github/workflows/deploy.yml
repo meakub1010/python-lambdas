@@ -3,7 +3,7 @@ name: Deploy Lambda Functions
 on:
   push:
     branches:
-      - py-lambdas  # Trigger on push to main branch
+      - '*'  # Trigger on push to any branch
 
 jobs:
   deploy_lambda_1:
@@ -88,4 +88,3 @@ jobs:
           else
             echo "No zip file found to upload."
           fi
-          
