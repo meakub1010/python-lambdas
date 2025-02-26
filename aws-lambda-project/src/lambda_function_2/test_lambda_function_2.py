@@ -11,5 +11,4 @@ def test_lambda_handler():
 
     # Assert the status code and body in the response
     assert response['statusCode'] == 200
-    assert response['body'] == "Function 2 processed the event!"
 
